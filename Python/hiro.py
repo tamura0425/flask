@@ -16,3 +16,10 @@ def output():
 oo2 = output()
 
 print(oo2)
+
+def ffor():
+    for a in range(1,10):
+        print(a)
+    
+
+ffor()
