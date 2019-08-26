@@ -1,5 +1,4 @@
-time = int(input())
-result = 0
+
 
 num = int(input()) #ループ回数
 sum = 0 # 合計
