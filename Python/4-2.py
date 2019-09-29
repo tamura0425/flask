@@ -1,21 +1,18 @@
 
 # 文字列の分割
 
-strLine = input()
+strLine = input().strip()
 
 
-def dispData(strLine):
-    str1 = strLine.split()
-    return str1
-
-str2 = dispData(strLine)
+def len(strLine):
+    i = len(strLine)
+    return i
 
 
-str3 = str2[0]
-str4 = str2[1]
+str2 =len(strLine)
 
-print(str3)
-print(str4)
+print(str2)
+
 
 '''
 以下のコードでも可
@@ -26,3 +23,4 @@ for string in std_in.split():
     print(string)
 
 '''
+
