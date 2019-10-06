@@ -3,7 +3,6 @@
 
 strLine = input().strip()
 
-
 def len(strLine):
     i = len(strLine)
     return i
