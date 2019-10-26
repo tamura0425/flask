@@ -10,7 +10,7 @@ public  class Hiro{
         System.out.println(a);
 
         System.out.println("hiro");
-		
+		System.out.println("ヒロタダ");
 		
 		System.out.println(cal0());
 		System.out.println(cal1());

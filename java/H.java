@@ -2,6 +2,7 @@ import java.util.*;
 public class H{public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
     System.out.println("hiro");
+    System.out.println("タムラ");
 
     int output1 = sc.nextInt();
 
