@@ -37,4 +37,34 @@ public class Paiza1 {
 		}
 
 	}
+下記でも可
+import java.util.*;
 
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[][] board = new String[5][5];
+        String result = "D";
+
+        for (int i = 0; i < 5; i++) {
+            board[i] = scanner.next().split("");
+        } 
+
+        for (int i = 0; i < 5; i++) {
+            String line = "";
+            for (int j = 0; j < 5; j++) {
+                line += board[j][i];
+            }
+
+            if (line.equals("OOOOO")) {
+                result = "O";
+            } else if (line.equals("XXXXX")) {
+                result = "X";
+            }
+        }
+
+        System.out.println(result);
+        scanner.close();
+    }
+}
