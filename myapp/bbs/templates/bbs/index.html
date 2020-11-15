@@ -8,8 +8,8 @@
     <body>
         <h1>paiza bbs</h1>
         <p>{{ message }}</p>
-        {% for player in players %}
-            <p>{{ player }}はモンスターと戦った</p>
+        {% for article in articles %}
+            <p>{{ article.content }}</p>
         {% endfor %}
     </body>
 </html>
