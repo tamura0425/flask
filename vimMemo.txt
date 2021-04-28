@@ -1,0 +1,84 @@
+###インストール
+sudo apt install git
+
+###ユーザー情報を設定する
+近の Git はこれを設定しないとエラーを吐くようになりました。いい機会です、是非設定しましょう。
+git config --global user.name "任意の名前"
+git config --global user.email "任意のメールアドレス"
+
+
+
+###エディタを Vim に設定する
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+
+git diff 色付け
+
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+
+###ubuntuでgitの補完をする
+
+echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+
+Github連携
+ssh-keyの作成
+Githubを連携させるには公開鍵が必要なので作成する
+ssh-keygen -t rsa -C "メールアドレス"
+
+ディレクトリに~/.ssh/id_rsaが作成される
+
+
+
+###基本操作コマンド
+
+####クローン
+git clone {URL}
+
+####ステージ
+git add -A
+git resert HEAD  # add取り消し
+
+####コミット
+
+git commit -m '{comment}'
+
+####プッシュ
+git push origin {localBaranchName}:{originBranchName}
+
+
+プル
+####git pull origin {originBranchName}
+
+
+####ブランチ
+# ブランチの確認
+git branch -a  
+# ブランチのチェックアウト
+git checkout -b {branchName} origin/{branchName}  
+# ブランチの削除
+git branch -d {branchName}  
+
+####gitリポジトリのoriginのURLを確認する
+git remote -v
+
+####ローカルの変更取り消し
+git chekout {fineName}  # 特定のファイル
+git checkout .  # すべてのファイル※追加ファイルは別途削除
+
+
+####リモートリポジトリの更新情報取得
+git fetch
+
+
+####マージ
+git merge {branchName}
+git merge --allow-unrelated-histories {branchName}  # 無関係なヒストリを持つブランチの場合[Git 2.9から]
+
+
+####リベース
+git rebase {rebaseの元にするBranchName}
+
+####Tree表示
+git log --graph --all --abbrev-commit --date=relative --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
