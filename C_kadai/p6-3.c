@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){
 
 //		int d, n;
 		int i,m,k,n;
-// コマンドラインよりデータ数nを読み込み		
+// コマンドラインよりデータ数nを読み込み
     if (argc==0) {
         return 0; 
     }
