@@ -16,7 +16,7 @@ int days(date_type *d){
     Y=d->year; /*「構造体ポインタ->「メンバ名」*/
     M=d->month;
     D=d->day;
-    
+
     if(M==1||M==2){
         M+=12;Y--;
     }
@@ -62,7 +62,7 @@ birthday.month=atoi(argv[2]);
 w=first_day_of_month(&birthday);
 n=days_in_month(&birthday);
 for(i=0;i<7;i++){
-    printf("%3s",youbi[i]);    
+    printf("%3s",youbi[i]);
 }
 
 
@@ -70,15 +70,15 @@ printf("\n%*s",w*3,"");
 
 for(i=1;i<=n;i++){
     printf("%3d",i);
-    
+
     if(++w%7==0){
-        printf("\n");    
+        printf("\n");
     }
 
 }
 
 for(w=1;w<42;w+=7){
-    printf("\n");    
+    printf("\n");
 }
 
 return 0;
