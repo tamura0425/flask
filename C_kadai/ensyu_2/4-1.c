@@ -19,7 +19,6 @@ long int f(int n)を再帰呼出しを使って実装したものに
 ３：2個与えられた場合、それらの値を m1、m2 とすると m 1 ≦ n ≦ m 2 である全ての値 n について小さい方から順に関数呼出し f(n) を行う。 m1＞m2 のときは関数呼出しは何も行わずに実行を終了する。
 ４：出力は、関数呼出し f(n) を行うごとにその結果をつぎの形式で1行として標準出力に書き出す。
 
-
 ※
 f(n)=v [c　times]
 v はフィボナッチ数の値、 c はその関数呼出し回数
@@ -29,13 +28,13 @@ v と [ の間、c と times の間には、それぞれ空白1文字をおく�
 
 関数
 long int f(int n){
-    説明 　:  get_token の初期設定; プログラムの先頭で呼び出す
-    引数　 :  int型。
+    説明 　: 配列を作成し結果入れ返す
+    引数　 : int型。
     返り値 : int型。
 
 
 long int f_(int n){
-    説明　 :  get_token の初期設定; プログラムの先頭で呼び出す
+    説明　 : n-1とn-2の答えを返す
     引数 　: int型
     返り値 : int型
 
@@ -84,12 +83,13 @@ int main(int argc, char *argv[]){
     
     //2つ目の入力を開始値として3つ目の入力値がなくなるまで繰り返す。
     for(i=from; i<=to; i++){
-        //入力値が1つ
+        //入力値が0の場合
         //ｆ関数に送る
         if(i==0){
             printf("f(%d)=%ld [%d times]\n",i,f(i),2);
         }
         //ｆ関数に送る
+        //入力値が
         else if(i>=0){
             printf("f(%d)=%ld [%d times]\n",i,f(i),i*2);
         }
@@ -98,19 +98,22 @@ int main(int argc, char *argv[]){
 }
 
 long int f(int n){
-    int i; long int r;
+    int i; 
+    long int r;
     
     F= calloc(n+1, sizeof(long int));
     
     for(i= 0; i!=n+1; i++){
         F[i]= none;   
     }
-    r= f_(n); free(F);
+    r= f_(n); 
+    free(F);
 return r;
 }
 
 
 long int f_(int n){
+    
     if( F[n]!=none ){
         return F[n];
     }
