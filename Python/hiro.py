@@ -20,4 +20,11 @@ print(aa2)
 def ffor():
     for a in range(1,10):
         print(a)
-    
+
+
+
+def test(a,b):
+    print(a+b)
+    return
+
+test(100,20)
