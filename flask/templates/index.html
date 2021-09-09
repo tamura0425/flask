@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja"><html>
-<frameset rows="100,*">
-
-<frame src="example_a.html" name="frame1" title="上フレーム">
-
-<frameset cols="*,200">
-<frame src="example_b.html" name="frame2" title="左フレーム">
-<frame src="example_c.html" name="frame3" title="右フレーム">
-</frameset>
-
-<noframes>
-<body>
-<p>フレームの代替内容</p>
-</body>
-</noframes>
-
-</frameset>
-
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello {{ name_value }}</h1>
+    <p>Hello paiza!</p>
+    {% for player in players: %}
+        <p>{{ player + "はモンスターを戦った" }}</p>
+    {% endfor %}
+{% endblock %}
