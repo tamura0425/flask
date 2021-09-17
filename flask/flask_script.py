@@ -71,6 +71,11 @@ def test():
     return render_template("right1.html")
 
 
+@app.route("/444")
+def header():
+   #変数定義
+    return render_template("header.html")
+
 
 
 
