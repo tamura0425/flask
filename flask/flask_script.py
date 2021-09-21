@@ -84,7 +84,7 @@ def header():
 
 
 @app.route("/00000")
-def 000():
+def hogehoge():
    #変数定義
     return "gitとVScodeの連携成功"
 
