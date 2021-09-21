@@ -17,11 +17,10 @@ def main():
 
 # どのページで実行する関数か設定
 @app.route("/3")
-
 #メイン関数
 def hello_world11():
-
-    return "Hello, World!"  # Hello, World! を出力
+    # Hello, World! を出力
+    return "Hello, World!"
 
 
 
@@ -85,7 +84,7 @@ def header():
 
 @app.route("/00000")
 def hogehoge():
-   #変数定義
+       #変数定義
     return "gitとVScodeの連携成功"
 
 if __name__ == "__main__":  # 実行されたら
