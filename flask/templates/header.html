@@ -1,5 +1,4 @@
-{% extends "layout.html" %}
-{% block content %}
+
   <head>
     <meta charset="UTF-8" />
     <title>Headers - 5</title>
@@ -9,6 +8,9 @@
     <link rel="stylesheet" href="static/css/header.css" />
   </head>
   <body>
+  
+{% extends "layout.html" %}
+{% block header %}
     <!-- Header Start -->
     <header class="site-header">
       <div class="site-header__wrapper">
@@ -86,7 +88,6 @@
                     class="nav-icon"
                     focusable="false"
                     xmlns="http://www.w3.org/2000/svg">
-                    
                     <path
                       d="M16,17.85V20a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V17.85a4,4,0,0,1,2.55-3.73l2.95-1.2V11.71l-0.73-1.3A6,6,0,0,1,4,7.47V6a4,4,0,0,1,4.39-4A4.12,4.12,0,0,1,12,6.21V7.47a6,6,0,0,1-.77,2.94l-0.73,1.3v1.21l2.95,1.2A4,4,0,0,1,16,17.85Zm4.75-3.65L19,13.53v-1a6,6,0,0,0,1-3.31V9a3,3,0,0,0-6,0V9.18a6,6,0,0,0,.61,2.58A3.61,3.61,0,0,0,16,13a3.62,3.62,0,0,1,2,3.24V21h4a1,1,0,0,0,1-1V17.47A3.5,3.5,0,0,0,20.75,14.2Z"
                       class="inactive-item"
@@ -212,10 +213,7 @@
     <p>Jinja2でHTMLファイルを読み込みことに成功しました。</p>
     <!-- jsの読み込み -->
     <script src="static/js/script.js"></script>
-
   </body>
-
 </html>
-
 
 {% endblock %}
