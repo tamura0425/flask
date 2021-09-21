@@ -1,20 +1,25 @@
-from flask import *  # 必要なライブラリのインポート
+# 必要なライブラリのインポート
+from flask import *
 
 # render_templateを使用するために記載
 from flask import Flask, render_template #追加
 
-app = Flask(__name__)  # アプリの設定 ・Flaskオブジェクトの生成
+# アプリの設定 ・Flaskオブジェクトの生成
+app = Flask(__name__)
 
-
-@app.route("/")  # どのページで実行する関数か設定
-def main():      #メイン関数 
+# どのページで実行する関数か設定
+@app.route("/")
+#メイン関数
+def main():
     name = "Flask"
     players = ["111","555","777"]
     return render_template("index.html",name_value = name,players = players)
 
+# どのページで実行する関数か設定
+@app.route("/3")
 
-@app.route("/3")  # どのページで実行する関数か設定
-def hello_world11():      #メイン関数 
+#メイン関数
+def hello_world11():
 
     return "Hello, World!"  # Hello, World! を出力
 
@@ -73,11 +78,15 @@ def test():
 
 @app.route("/444")
 def header():
-   #変数定義
+    #変数定義
     return render_template("header.html")
 
 
 
+@app.route("/00000")
+def 000():
+   #変数定義
+    return "gitとVScodeの連携成功"
 
 if __name__ == "__main__":  # 実行されたら
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
