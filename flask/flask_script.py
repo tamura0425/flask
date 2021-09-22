@@ -23,7 +23,6 @@ def hello_world11():
     return "Hello, World!"
 
 
-
 @app.route("/<name>")
 def hello_name(name):
     return "Hello, {}".format(name)
@@ -46,25 +45,12 @@ def hello_world226():
 #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index2.html",)
 
-@app.route("/222")
-def test():
-   #変数定義
-    return render_template("right.html")
 
 
 @app.route("/444")
 def header():
     #変数定義
     return render_template("header.html")
-
-
-
-
-
-
-
-
-
 
 
 
