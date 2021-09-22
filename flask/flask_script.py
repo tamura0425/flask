@@ -46,22 +46,6 @@ def hello_world226():
 #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index2.html",)
 
-
-
-@app.route("/111")
-def hello_world():
-   #変数定義
-    name = "Flask"
-#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
-    return render_template("index.html", name_value = name)
-
-
-
-@app.route("/333")
-def konniti():
-   #変数定義
-    return "こんにちは"
-
 @app.route("/222")
 def test():
    #変数定義
