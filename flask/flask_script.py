@@ -47,11 +47,18 @@ def hello_world226():
 
 
 
-@app.route("/444")
+@app.route("/4")
 def header():
     #変数定義
     return render_template("header.html")
 
+
+
+
+@app.route("/45")
+def header():
+    #変数定義
+    return render_template("header.html")
 
 
 if __name__ == "__main__":  # 実行されたら
