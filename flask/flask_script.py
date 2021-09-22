@@ -23,6 +23,7 @@ def hello_world11():
     return "Hello, World!"
 
 
+
 # @app.route("/<name>")
 # def hello_name(name):
 #     return "Hello, {}".format(name)
@@ -47,19 +48,37 @@ def hello_world226():
 
 
 
-@app.route("/4")
+@app.route("/111")
+def hello_world():
+   #変数定義
+    name = "Flask"
+#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
+    return render_template("index.html", name_value = name)
+
+
+
+@app.route("/333")
+def konniti():
+   #変数定義
+    return "こんにちは"
+
+@app.route("/222")
+def test():
+   #変数定義
+    return render_template("right.html")
+
+
+@app.route("/444")
 def header():
     #変数定義
     return render_template("header.html")
 
 
 
-
-@app.route("/45")
-def header():
-    #変数定義
-    return render_template("header.html")
-
+@app.route("/00000")
+def hogehoge():
+       #変数定義
+    return "gitとVScodeの連携成功"
 
 if __name__ == "__main__":  # 実行されたら
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
