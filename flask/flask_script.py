@@ -58,10 +58,7 @@ def header():
     return render_template("header.html")
 
 
-@app.route("/00000")
-def hogehoge():
-       #変数定義
-    return "gitとVScodeの連携成功"
+
 
 
 
