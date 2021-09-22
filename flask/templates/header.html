@@ -1,7 +1,3 @@
-{% extends "layout.html" %}
-{% block header %}
-
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -218,6 +214,14 @@
     <!-- jsの読み込み -->
     <script src="static/js/script.js"></script>
   </body>
-</html>
-
+  {% extends "layout.html" %}
+  {% block content %}
+    <h1>Hello {{ name_value }}</h1>
+    <p>Hello paiza!</p>
+    {% for player in players: %}
+        <p>{{ player + "はモンスターを戦った" }}</p>
+    {% endfor %}
 {% endblock %}
+
+
+</html>
