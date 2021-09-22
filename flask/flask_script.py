@@ -22,6 +22,13 @@ def hello_world11():
     # Hello, World! を出力
     return "Hello, World!"
 
+@app.route("/111")
+def hello_world():
+   #変数定義
+    name = "Flask"
+#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
+    return render_template("index.html", name_value = name)
+
 
 
 # @app.route("/<name>")
@@ -40,27 +47,7 @@ def aa5():
     return render_template("index.html", name_value = name)
 
 
-@app.route("/666")
-def hello_world226():
-   #変数定義
-#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
-    return render_template("index2.html",)
 
-
-
-@app.route("/111")
-def hello_world():
-   #変数定義
-    name = "Flask"
-#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
-    return render_template("index.html", name_value = name)
-
-
-
-@app.route("/333")
-def konniti():
-   #変数定義
-    return "こんにちは"
 
 @app.route("/222")
 def test():
@@ -75,10 +62,10 @@ def header():
 
 
 
-@app.route("/00000")
+@app.route("/04")
 def hogehoge():
        #変数定義
-    return "gitとVScodeの連携成功"
+     return render_template("test.html")
 
 if __name__ == "__main__":  # 実行されたら
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
