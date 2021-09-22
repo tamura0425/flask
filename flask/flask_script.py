@@ -23,9 +23,9 @@ def hello_world11():
     return "Hello, World!"
 
 
-@app.route("/<name>")
-def hello_name(name):
-    return "Hello, {}".format(name)
+# @app.route("/<name>")
+# def hello_name(name):
+#     return "Hello, {}".format(name)
 
 
 @app.route("/index")
