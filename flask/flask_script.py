@@ -29,13 +29,6 @@ def hello_name(name):
     return "Hello, {}".format(name)
 
 
-
-
-#@app.route("/name")
-#$def hello_name():
-#    return "5555555555"
-
-
 @app.route("/index")
 def index():
     return render_template("index.html")
@@ -72,7 +65,7 @@ def konniti():
 @app.route("/222")
 def test():
    #変数定義
-    return render_template("right1.html")
+    return render_template("right.html")
 
 
 @app.route("/444")
@@ -81,11 +74,18 @@ def header():
     return render_template("header.html")
 
 
-
 @app.route("/00000")
 def hogehoge():
        #変数定義
     return "gitとVScodeの連携成功"
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":  # 実行されたら
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
