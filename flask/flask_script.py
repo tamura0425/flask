@@ -67,5 +67,21 @@ def hogehoge():
        #変数定義
      return render_template("test.html")
 
+@app.route("/05")
+def sake_type():
+       #変数定義
+     return render_template("sake_type.html")
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":  # 実行されたら
     app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
