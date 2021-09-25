@@ -3,6 +3,7 @@ from flask import *
 
 # render_templateを使用するために記載
 from flask import Flask, render_template #追加
+#flask_bootstrapの使用
 from flask_bootstrap import Bootstrap
 
 # アプリの設定 ・Flaskオブジェクトの生成
