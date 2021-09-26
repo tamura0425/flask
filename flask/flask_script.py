@@ -10,7 +10,7 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 
 # どのページで実行する関数か設定
-@app.route("/")
+@app.route("/01")
 #メイン関数
 def main():
     name = "Flask"
@@ -39,7 +39,7 @@ def hello_world():
 
 
 @app.route("/index")
-def index():
+def index1():
     return render_template("index.html")
 
 
@@ -78,8 +78,8 @@ def sake_type():
 
 
 
-@app.route('/06')
-def bootstrap():
+@app.route('/')
+def index():
     return render_template('bootstrap.html')
 
 
