@@ -1,10 +1,43 @@
 # 必要なライブラリのインポート
 from flask import *
 
+import pymysql
+
 # render_templateを使用するために記載
 from flask import Flask, render_template #追加
 #flask_bootstrapの使用
 from flask_bootstrap import Bootstrap
+
+#データベースをSQLAlchemyで修正するために必要
+from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+
+
+
+#データベースコントロール
+connection = pymysql.connect(
+    host="localhost",
+    db="mydb",
+    user="root",
+    password="",
+    charset="utf8",
+    cursorclass=pymysql.cursors.DictCursor
+)
+
+sql = "SELECT * FROM players"
+cursor = connection.cursor()
+cursor.execute(sql)
+players = cursor.fetchall()
+
+cursor.close()
+connection.close()
+
+for player in players:
+    print(player["name"])
+
+
 
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -37,6 +70,24 @@ def hello_world():
 # @app.route("/<name>")
 # def hello_name(name):
 #     return "Hello, {}".format(name)
+
+@app.route("/")
+def show():
+    message = "Hello World"
+    return render_template("form.html", message = message)
+
+@app.route("/result", methods=["GET", "POST"])
+def result():
+    message = "This is paiza"
+    if request.method == "POST":
+        article = request.form["article"]
+        name = request.form["name"]
+    else:
+        article = request.args.get("article")
+        name = request.args.get("name")
+    return render_template("form.html", message = message, article = article, name = name)
+
+
 
 
 @app.route("/index")
@@ -72,7 +123,7 @@ def sake_type():
      return render_template("Sake_type.html")
 
 
-@app.route('/')
+@app.route('/bootstrap')
 def bootstrap():
     return render_template('bootstrap.html')
 
