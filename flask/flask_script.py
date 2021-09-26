@@ -78,6 +78,9 @@ def sake_type():
 
 
 
+@app.route('/06')
+def bootstrap():
+    return render_template('bootstrap.html')
 
 
 
