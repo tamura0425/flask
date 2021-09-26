@@ -8,34 +8,10 @@ from flask import Flask, render_template #追加
 #flask_bootstrapの使用
 from flask_bootstrap import Bootstrap
 
-#データベースをSQLAlchemyで修正するために必要
+#データベースをSQLAlchemyで操作するために必要
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-
-
-
-
-#データベースコントロール
-# connection = pymysql.connect(
-#     host="localhost",
-#     db="mydb",
-#     user="root",
-#     password="",
-#     charset="utf8",
-#     cursorclass=pymysql.cursors.DictCursor
-# )
-
-# sql = "SELECT * FROM players"
-# cursor = connection.cursor()
-# cursor.execute(sql)
-# players = cursor.fetchall()
-
-# cursor.close()
-# connection.close()
-
-# for player in players:
-#     print(player["name"])
 
 
 
@@ -49,27 +25,14 @@ bootstrap = Bootstrap(app)
 def main():
     name = "Flask"
     players = ["111","555","777"]
+    
+    #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index.html",name_value = name,players = players)
-
-# どのページで実行する関数か設定
-@app.route("/3")
-#メイン関数
-def hello_world11():
-    # Hello, World! を出力
-    return "Hello, World!"
-
-@app.route("/111")
-def hello_world():
-   #変数定義
-    name = "Flask"
-#templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
-    return render_template("index.html", name_value = name)
-
-
 
 # @app.route("/<name>")
 # def hello_name(name):
 #     return "Hello, {}".format(name)
+
 
 @app.route("/")
 def show():
@@ -87,7 +50,20 @@ def result():
         name = request.args.get("name")
     return render_template("form.html", message = message, article = article, name = name)
 
+"""
+GET用クエリパラメータの値を取得    request.args.get
+POST用クエリパラメータの値を取得   request.form.get
 
+実態は ImmutableMultiDict というオブジェクトとなっている。
+
+このオブジェクトの各種メソッドを使用して、パラメータの取得や、
+存在確認や値の型とデフォルト値を指定することができる。以下サンプル
+
+@app.route('/api/books/')
+def api_books():
+    offset = request.args.get('offset', default=0, type=int)
+    limit = request.args.get('limit', default=100, type=int)
+"""
 
 
 @app.route("/index")
@@ -128,6 +104,26 @@ def bootstrap():
     return render_template('bootstrap.html')
 
 
+#データベースコントロール
+# connection = pymysql.connect(
+#     host="localhost",
+#     db="mydb",
+#     user="root",
+#     password="",
+#     charset="utf8",
+#     cursorclass=pymysql.cursors.DictCursor
+# )
+
+# sql = "SELECT * FROM players"
+# cursor = connection.cursor()
+# cursor.execute(sql)
+# players = cursor.fetchall()
+
+# cursor.close()
+# connection.close()
+
+# for player in players:
+#     print(player["name"])
 
 
 
