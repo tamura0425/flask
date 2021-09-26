@@ -73,7 +73,7 @@ def sake_type():
 
 
 @app.route('/')
-def hello_world():
+def bootstrap():
     return render_template('bootstrap.html')
 
 
