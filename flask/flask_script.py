@@ -40,7 +40,7 @@ def hello_world():
 
 
 @app.route("/index")
-def index1():
+def index():
     return render_template("index.html")
 
 
@@ -48,9 +48,6 @@ def index1():
 def aa5():
     name = "私は田村弘忠です。"
     return render_template("index.html", name_value = name)
-
-
-
 
 @app.route("/222")
 def test():
@@ -62,8 +59,6 @@ def test():
 def header():
     #変数定義
     return render_template("header.html")
-
-
 
 @app.route("/04")
 def hogehoge():
@@ -77,10 +72,8 @@ def sake_type():
      return render_template("Sake_type.html")
 
 
-
-
 @app.route('/')
-def index():
+def hello_world():
     return render_template('bootstrap.html')
 
 
