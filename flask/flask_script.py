@@ -8,6 +8,7 @@ from flask_bootstrap import Bootstrap
 
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 # どのページで実行する関数か設定
 @app.route("/01")
