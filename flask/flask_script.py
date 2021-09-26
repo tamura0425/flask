@@ -17,25 +17,25 @@ from sqlalchemy.orm import sessionmaker
 
 
 #データベースコントロール
-connection = pymysql.connect(
-    host="localhost",
-    db="mydb",
-    user="root",
-    password="",
-    charset="utf8",
-    cursorclass=pymysql.cursors.DictCursor
-)
+# connection = pymysql.connect(
+#     host="localhost",
+#     db="mydb",
+#     user="root",
+#     password="",
+#     charset="utf8",
+#     cursorclass=pymysql.cursors.DictCursor
+# )
 
-sql = "SELECT * FROM players"
-cursor = connection.cursor()
-cursor.execute(sql)
-players = cursor.fetchall()
+# sql = "SELECT * FROM players"
+# cursor = connection.cursor()
+# cursor.execute(sql)
+# players = cursor.fetchall()
 
-cursor.close()
-connection.close()
+# cursor.close()
+# connection.close()
 
-for player in players:
-    print(player["name"])
+# for player in players:
+#     print(player["name"])
 
 
 
