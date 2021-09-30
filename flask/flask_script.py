@@ -1,6 +1,9 @@
 # 必要なライブラリのインポート
 from flask import *
 from flask import Flask
+
+#分割ファイルをメインで使用する為に記載
+#記載例　from Pythonファイルメイ import モジュール名
 from ok import ok_module
 from ng import ng_module
 
@@ -23,6 +26,7 @@ from sqlalchemy.orm import sessionmaker
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
+
 ##以下をモジュールとして定義しアプリケーションに認識
 app.register_blueprint(ok_module)
 app.register_blueprint(ng_module)
