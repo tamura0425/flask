@@ -18,6 +18,9 @@ from sqlalchemy.orm import sessionmaker
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
+##以下をモジュールとして定義しアプリケーションに認識
+app.register_blueprint(ok_module)
+app.register_blueprint(ng_module)
 
 # どのページで実行する関数か設定
 @app.route("/01")
