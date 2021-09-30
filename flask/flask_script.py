@@ -1,6 +1,8 @@
 # 必要なライブラリのインポート
 from flask import *
 from flask import Flask
+from ok import ok_module
+from ng import ng_module
 
 import pymysql
 
@@ -8,6 +10,8 @@ import pymysql
 from flask import Flask, render_template #追加
 #flask_bootstrapの使用
 from flask_bootstrap import Bootstrap
+
+
 
 #データベースをSQLAlchemyで操作するために必要
 from sqlalchemy import create_engine, Column, String, Integer
