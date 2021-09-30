@@ -1,5 +1,6 @@
 # 必要なライブラリのインポート
 from flask import *
+from flask import Flask
 
 import pymysql
 
