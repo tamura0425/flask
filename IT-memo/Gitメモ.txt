@@ -1,0 +1,162 @@
+-------------------------------------------------------------
+パスワードトークン
+-------------------------------------------------------------
+
+2021年10月3日作成
+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
+
+
+-------------------------------------------------------------
+インストール
+-------------------------------------------------------------
+sudo apt install git
+
+
+-------------------------------------------------------------
+ユーザー情報を設定する
+-------------------------------------------------------------
+git config --global user.name "任意の名前"
+git config --global user.email "任意のメールアドレス"
+
+
+-------------------------------------------------------------
+###エディタを Vim に設定する
+-------------------------------------------------------------
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+git diff 色付け
+
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+
+-------------------------------------------------------------
+ubuntuでgitの補完をする
+-------------------------------------------------------------
+echo "source /usr/share/bash-completion/completions/git" >> ~/.bashrc
+
+
+-------------------------------------------------------------
+Github連携
+-------------------------------------------------------------
+ssh-keyの作成
+Githubを連携させるには公開鍵が必要なので作成する
+
+ssh-keygen -t rsa -C "メールアドレス"
+
+ディレクトリに~/.ssh/id_rsaが作成される
+
+
+
+-------------------------------------------------------------
+基本操作コマンド
+-------------------------------------------------------------
+
+クローン
+git clone {URL}
+
+ステージ
+git add -A
+git resert HEAD  # add取り消し
+
+コミット
+
+git commit -m '{comment}'
+
+プッシュ
+git push origin {localBaranchName}:{originBranchName}
+
+
+プル
+git pull origin {originBranchName}
+
+リモートリポジトリを一覧表示!
+git remote -v
+
+リモートリポジトリ変更
+git remote set-url origin {new url}
+
+# ブランチの確認
+git branch -a  
+
+# ブランチ　 ブランチ 変更　（チェックアウト）
+git checkout -b {branchName} origin/{branchName}  
+
+
+# マージ済みブランチの削除
+git branch -d [ブランチ名]
+ 
+# ブランチの強制削除
+git branch -D [ブランチ名]
+
+git branch -d develop
+
+
+gitリポジトリのoriginのURLを確認する
+git remote -v
+
+
+リポジトリを変更
+
+git remote set-url origin {new-url}
+
+git remote set-url origin  https://github.com/tamura0425/python.git
+
+
+
+
+ローカルの変更取り消し
+git chekout {fineName}  # 特定のファイル
+git checkout .  # すべてのファイル※追加ファイルは別途削除
+
+
+リモートリポジトリの更新情報取得
+git fetch
+
+
+マージ
+git merge {branchName}
+git merge --allow-unrelated-histories {branchName}  # 無関係なヒストリを持つブランチの場合[Git 2.9から]
+
+
+リベース
+git rebase {rebaseの元にするBranchName}
+
+Tree表示
+git log --graph --all --abbrev-commit --date=relative --pretty=format:'%C(red)%h %C(reset)-%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+
+
+-------------------------------------------------------------
+エラー対処
+-------------------------------------------------------------
+【Updates were rejected because the tip of your current branch is behind】
+①
+git pull origin master
+②
+git pull origin ブランチ名
+
+
+git remote add origin https://github.com/tamura0425/flask.git
+
+
+ git branch --set-upstream-to=origin/リモートブランチ名 ローカルブランチ名
+
+git push -u origin paiza
+ 
+ 
+ローカルに反映されていなく
+
+git checkout master
+git pull upstream master
+
+git pull origin ブランチ名
+
+
+現在使用コマンド
+git pull origin flask
+
+
+
+参考
+https://qiita.com/mugioka/items/2027e229251caa3855c8

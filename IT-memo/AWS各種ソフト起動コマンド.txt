@@ -1,0 +1,23 @@
+各種起動
+
+
+//アパッチ再起動
+service httpd restart
+
+
+
+//AWS接続コマンド（ログインコマンド）
+$ ssh -i ~/.ssh/AWS_KEY.pem ec2-user@52.68.133.20
+
+//Webサーバー起動コマンド
+$$ sudo service httpd start
+
+
+//MySQLの起動
+## service mysqld start
+
+
+MySQLの再起動
+## service mysqld restart
+
+

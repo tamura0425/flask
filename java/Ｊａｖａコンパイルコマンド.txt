@@ -1,1 +1,0 @@
-javac -encoding UTF- 	ファイル名.java

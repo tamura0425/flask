@@ -1,0 +1,9 @@
+
+
+sshパッケージインストール
+sudo apt-get install openssh-server
+
+https://kuro-rera.hatenablog.com/entry/2018/01/12/215955
+https://sho-japan.hatenablog.com/archive/2015/03/01
+ホスト
+127.0.0.1:3000
