@@ -7,11 +7,11 @@ def get_ok():
     return "OK"
 
 
-@app.route("/index")
+@ok_module.route("/index")
 def index():
     return render_template("index.html")
 
-@app.route("/05")
+@ok_module.route("/05")
 def sake_type():
        #変数定義
      return render_template("Sake_type.html")
