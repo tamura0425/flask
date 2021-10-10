@@ -10,3 +10,8 @@ def get_ok():
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+@app.route("/05")
+def sake_type():
+       #変数定義
+     return render_template("Sake_type.html")

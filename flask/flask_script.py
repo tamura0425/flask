@@ -78,9 +78,9 @@ def api_books():
 """
 
 
-@app.route("/index")
-def index():
-    return render_template("index.html")
+# @app.route("/index")
+# def index():
+#     return render_template("index.html")
 
 
 @app.route("/555")
@@ -105,10 +105,10 @@ def hogehoge():
      return render_template("test.html")
 
 
-@app.route("/05")
-def sake_type():
-       #変数定義
-     return render_template("Sake_type.html")
+# @app.route("/05")
+# def sake_type():
+#        #変数定義
+#      return render_template("Sake_type.html")
 
 
 @app.route('/bootstrap')
