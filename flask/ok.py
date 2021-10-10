@@ -1,3 +1,5 @@
+# render_templateを使用するために記載
+from flask import Flask, render_template #追加
 from flask import Blueprint
 
 ok_module = Blueprint("ok", __name__)
