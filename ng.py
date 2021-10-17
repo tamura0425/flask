@@ -1,3 +1,6 @@
+# 必要なライブラリのインポート
+from flask import *
+from flask import Flask
 from flask import Blueprint
 
 ng_module = Blueprint("ng", __name__)
