@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Flask - paiza</title>
+        <style>body {padding: 10px;}</style>
+    </head>
+    <body>
+        <p>共通テンプレート</p>
+        {% block content %}
+        {% endblock %}
+        <p> {{name_value}} </p>
+    </body>
+</html>
