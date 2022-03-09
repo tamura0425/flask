@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+# 必要なライブラリのインポート
+from flask import *
+from flask import Flask
+>>>>>>> c59828f18874d9f15882b51a04f89706843e5d8c
 # render_templateを使用するために記載
 from flask import Flask, render_template #追加
 from flask import Blueprint

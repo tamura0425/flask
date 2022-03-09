@@ -1,0 +1,59 @@
+
+https://tutorialcrawler.com/ubuntu-debian/ubuntu-20-04%E3%81%ABapache-web%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/https://www.server-world.info/query?os=Ubuntu_20.04&p=httpd&f=1
+
+https://qiita.com/cherubim1111/items/b259493a39e36f5d524b
+
+https://ubunlog.com/ja/servidor-web-apache-instalacion-conceptos-basicos-ubuntu-20-04/
+
+Ubuntu 20.04へのApache2のインストール
+1.まず、Ubuntu 20.04システムにログインし、次のaptコマンドを使用してシステムパッケージを更新します。
+
+sudo apt update
+2.更新プロセスが完了したら、 Apache2 Webサーバーソフトウェアを次のようにインストールします。
+
+sudo apt install apache2
+
+
+sudo systemctl is-active apache2
+sudo systemctl is-enabled apache2
+sudo systemctl status apache2
+
+
+
+表示ip確認コマンド
+hostname -I
+
+
+udo ufw status | grep '80'
+何も表示されないなら、「80」は未開放という状況になります。
+なお、「ufw」コマンドが動かない場合は、次の記事をご覧ください。
+
+
+「ufw」コマンドが動くなら、次のコマンドを実行します。
+
+$ sudo ufw allow 80
+
+
+開放されたかどうか確認しましょう。
+
+sudo ufw status | grep '80'
+
+
+
+	Apache httpd の設定です。サーバーの名前等は自身の環境に置き換えてください。
+root@www:~# vi /etc/apache2/conf-enabled/security.conf
+# 25行目：変更
+ServerTokens Prod
+
+root@www:~# vi /etc/apache2/mods-enabled/dir.conf
+# 2行目：ディレクトリ名のみでアクセスできるファイル名を設定
+DirectoryIndex index.html index.htm
+
+root@www:~# vi /etc/apache2/apache2.conf
+# 70行目：サーバー名追記
+ServerName www.srv.world
+
+root@www:~# vi /etc/apache2/sites-enabled/000-default.conf
+# 11行目：管理者アドレス変更
+ServerAdmin webmaster@srv.world
+root@www:~# systemctl restart apache2

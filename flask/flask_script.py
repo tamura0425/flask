@@ -41,10 +41,13 @@ def main():
     #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index.html",name_value = name,players = players)
 
+<<<<<<< HEAD
 # @app.route("/<name>")
 # def hello_name(name):
 #     return "Hello, {}".format(name)
 
+=======
+>>>>>>> c59828f18874d9f15882b51a04f89706843e5d8c
 
 @app.route("/")
 def show():

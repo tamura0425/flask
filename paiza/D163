@@ -1,0 +1,25 @@
+package paiza;
+
+
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Paiza {
+static Scanner sc = new Scanner(System.in);
+static ArrayList<Integer> intList = new ArrayList<Integer>();
+static ArrayList<String> strList = new ArrayList<String>();
+
+	public static void main(String[] args) {
+
+		String a = sc.next();
+
+		String [] strArray = a.split("");
+
+		for(String s : strArray) {
+			System.out.println(s);
+		}
+
+	}
+
+

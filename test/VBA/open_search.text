@@ -1,0 +1,42 @@
+ 結構面倒ですよ
+ 検索するワード数×テキストファイルの行数　だけ Instrで調べないといけないです
+ ２重ループ二なりますが、
+　(a) 1行読んだら全ワードを検索して、行数分繰り返す　か
+　(b) 1行読んだら１ワードを検索して、行末までいったら、１行目に戻って、次のワードを繰り返す
+ どっちもアリです。
+ 質問者さんのコードでは、(b)でやってるようですが、
+ テキストファイルの１行目に戻すコードがありません
+　　
+ 以下のサンプルは、(a)でやってます。
+ Sub sample()
+    Dim buf As Variant
+    Dim Dic As Object
+    Dim fn As Long, line As String
+    With ActiveSheet
+       With .Range(.Cells(1, 1), .Cells(.Rows.Count, 1).End(xlUp))
+            .Offset(, 1).Value = "×"
+            buf = .Resize(, 2).Value
+       End With
+    End With
+    Set Dic = CreateObject("Scripting.Dictionary")
+    For i = LBound(buf) To UBound(buf)
+        If Not Dic.Exists(buf(i, 1)) Then
+           Dic.Add buf(i, 1), i
+        End If
+    Next
+    fn = FreeFile
+    Open "D:\test.txt" For Input As fn
+    Line Input #fn, line
+    Do While Not EOF(fn)
+       Line Input #fn, line
+       For Each s In Dic
+           If InStr(line, s) Then
+              buf(Dic(s), 2) = "○"
+              Dic.Remove s
+           End If
+           If Dic.Count = 0 Then Exit Do
+       Next
+    Loop
+    Close fn
+    ActiveSheet.Cells(1, 1).Resize(UBound(buf), 2).Value = buf
+ End Sub
