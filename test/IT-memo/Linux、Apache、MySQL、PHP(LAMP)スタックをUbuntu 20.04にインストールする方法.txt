@@ -1,0 +1,726 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04-ja
+
+
+
+
+https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-20-04-with-a-lamp-stack-ja
+
+
+
+https://qiita.com/cherubim1111/items/265cfbbe91adb44562d5
+
+
+Apacheをインストールする
+
+sudo apt install apache2
+
+
+
+
+HTTPトラフィックを許可するために、ファイアウォール設定を調整する必要があります。
+UFWには、ファイアウォール設定に利用できるさまざまなアプリケーションプロファイルがあります。
+現在利用可能なUFWアプリケーションプロファイルを一覧表示するには、次のことを行います。
+
+sudo ufw app list
+
+
+
+
+sudo ufw allow in "Apache"
+
+変更を確認することができます。
+
+sudo ufw status
+
+
+UFWをアクティブ化します。
+sudo ufw enable
+
+
+
+UFWステータスを確認します。
+sudo ufw status
+
+
+
+Apache2確認
+http://127.0.0.1
+
+
+
+
+
+ステップ2 — MySQLをインストールする
+sudo apt install mysql-server
+
+
+
+
+
+
+
+セキュリティに懸念のあるデフォルト設定の一部を削除し、
+データベースシステムへのアクセスをロックします。次を実行してインタラクティブスクリプトを起動します。
+
+sudo mysql_secure_installation
+
+
+
+MySQL 8インストール後　設定
+https://weblabo.oscasierra.net/mysql-57-init-setup/
+
+
+https://rin-ka.net/mysql8-init/
+
+
+
+
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0　←　「0」を入力　セキュリティレベルを設定　今回は「LOW」を選択
+
+Please set the password for root here.
+
+password:　←　rootの「新パスワード」を入力
+
+password:　←　再度「パスワード」を入力
+
+
+Estimated strength of the password: 50
+Do you wish to continue with the password provided?
+(Press y|Y for Yes, any other key for No) : y　←　「y」を押下
+
+
+
+
+                                                                 # 不要なanonymousユーザーを削除
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : y　←　「y」を押下
+Success.
+
+
+
+
+# rootのリモート接続を不許可に設定
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y　←　「y」を押下
+Success.
+
+
+
+# 不要なtestデータベースを削除
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y　←　「y」を押下
+ - Dropping test database...
+Success.
+
+
+
+
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y　←　「y」を押下
+Success.
+
+
+
+
+
+完了したら、次を入力してMySQLコンソールにログインできるかどうかをテストします。
+
+sudo mysql
+
+
+
+MySQLコンソールを終了するには、次のように入力します。
+
+exit
+
+
+
+
+
+
+
+ステップ3 — PHPのインストール
+コンテンツを提供するためにApacheがインストールされ、
+ 
+phpパッケージに加えて、PHPがMySQLベースのデータベースと通信できるようにするPHPモジュールのphp-mysqlが必要になります。
+また、ApacheがPHPファイルを処理できるようにするために、libapache2-mod-phpが必要です。
+コアとなるPHPパッケージは依存関係として自動的にインストールされます。
+
+
+sudo apt install php libapache2-mod-php php-mysql
+
+
+
+インストールが完了したら、PHPのバージョンを確認するために、次のコマンドを実行できます。
+
+php -v
+
+
+
+ステップ4 — Webサイトのバーチャルホストを作成
+Apache Webサーバーを使用している場合、
+バーチャルホスト (Nginx のサーバブロックに似ています) を作成して設定の詳細をカプセル化し、
+単一のサーバーから複数のドメインをホストすることができます。
+このガイドでは、your_domainというドメインを設定しますが、
+このドメイン名を自分のドメイン名に置き換える必要があります。
+
+
+
+Ubuntu 20.04上のApacheには、/var/www/htmlディレクトリから
+ドキュメントを提供するように設定されているデフォルトで有効になっている1つのサーバーブロックがあります。
+これは単一のサイトに適していますが、複数のサイトをホストしている場合、扱いにくくなる可能性があります。
+var/www/htmlを変更する代わりに、クライアントのリクエストが他のサイトと一致しない
+場合に提供されるデフォルトのディレクトリとして/var/www/htmlをそのままにして、
+your_domainサイトの/var/www内のディレクトリ構造を作成します。
+
+your_domainのディレクトリを次のように作成します。
+
+sudo mkdir /var/www/your_domain
+ 
+次に、現在のシステムユーザーを参照する環境変数$USERでディレクトリの所有権を割り当てます。
+
+sudo chown -R $USER:$USER /var/www/your_domain
+
+
+
+
+コマンドラインエディタを使ってApacheのsites-availableディレクトリに新しい設定ファイルを開きます。
+
+sudo vim /etc/apache2/sites-available/your_domain.conf
+
+
+
+bare-bones 設定に貼り付け
+<VirtualHost *:80>
+    ServerName your_domain
+    ServerAlias www.your_domain
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
+
+
+新しいバーチャルホストを有効にするために、a2ensiteを使用できます。
+
+sudo a2ensite your_domain
+
+
+
+Apacheと一緒にインストールされているデフォルトのWebサイトを無効にしたい場合があります。
+Apacheのデフォルト設定はバーチャルホストを上書きするため、カスタムドメイン名を使用していない場合にはこれは必要です。
+ApacheのデフォルトのWebサイトを無効にするには、次のように入力します。
+
+sudo a2dissite 000-default
+
+
+設定ファイルに構文エラーが含まれていないことを確認するには、次を実行します。
+
+sudo apache2ctl configtest
+
+
+
+
+最後、Apacheをリロードすると、これらの変更が有効になります。
+
+sudo systemctl reload apache2
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+
+新しいWebサイトはアクティブになりましたが、Web root /var/www/your_domainはまだ空です。
+その場所にindex.htmlファイルを作成し、バーチャルホストが予想通りに動作するかどうかテストできます。
+
+vim /var/www/your_domain/index.html
+
+
+<html>
+  <head>
+    <title>your_domain website</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <p>This is the landing page of <strong>your_domain</strong>.</p>
+  </body>
+</html>
+
+
+
+Apache2確認
+http://127.0.0.1
+
+
+
+
+
+Apache上のDirectoryIndexに関する注記
+ApacheでデフォルトのDirectoryIndex設定を使用すると、
+index.htmlという名前のファイルは常にindex.phpファイルよりも優先されます。
+
+これは、訪問者に有益なメッセージを含む一時的なindex.htmlファイルを作成することにより、
+PHPアプリケーションでメンテナンスページを設定するのに便利です。
+
+このページがindex.phpページに優先されるため、アプリケーションのランディングページになります。
+
+メンテナンスが終わったら、index.htmlは名前が変更されるか、ドキュメントrootから削除され、
+通常のアプリケーションページが元に戻ります。
+
+この動作を変更する場合は、 
+/etc/apache2/mods-ableded/dir.confファイルを編集し、
+DirectoryIndexディレクティブ内でindex.phpファイルが表示されている順序を修正する必要があります。
+
+バックアップ作成
+sudo cp  /etc/apache2/mods-enabled/dir.conf dir.conf_BK
+
+確認
+ll  /etc/apache2/mods-enabled/
+
+
+書き換え
+sudo vim /etc/apache2/mods-enabled/dir.conf
+
+<IfModule mod_dir.c>
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>
+
+
+ファイルを保存して閉じた後、変更が有効になるようにApacheをリロードする必要があります。
+sudo systemctl reload apache2
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+
+
+ステップ5 — WebサーバーでPHP処理をテストする
+Webサイトのファイルとフォルダをホストする場所を指定したので、
+ApacheがPHPファイルへのリクエストを処理できることを確認するためのPHPテストスクリプトを作成します。
+
+指定したWeb rootフォルダにinfo.phpという名前の新しいファイルを作成します。
+
+vim /var/www/your_domain/info.php
+
+
+<?php
+phpinfo();
+
+
+sudo systemctl reload apache2
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+確認アドレス
+http://127.0.0.1//info.php
+
+
+
+
+ブラウザでこのページが表示できれば、PHP のインストールは期待通りに動作していることになります。
+
+このページ上のPHPサーバーに関する情報を確認した後は、
+作成したファイルにはPHP環境およびUbuntuサーバーに関する機密情報が含まれているため、削除しておいた方がよいでしょう。
+rmを使用して、削除できます。‏‏
+
+sudo rm /var/www/your_domain/info.php
+
+
+
+MariaDB 10.1 のインストール
+  ステータスの確認
+systemctl status  mariadb
+開始
+systemctl start   mariadb
+停止
+systemctl stop    mariadb
+再起動
+systemctl restart mariadb
+自動起動
+systemctl enable  mariadb
+
+
+
+apt -y install mariadb-server mariadb-client
+自動起動
+systemctl enable  mariadb
+開始
+systemctl start   mariadb
+
+
+
+WordPress 用データベース作成
+文字コードUTF8でデータベース wordpress を作成します。
+create user 'ここにユーザ名'@'localhost' identified by 'ここにパスワード';
+
+
+sudo mariadb
+
+
+新しいデータベースを作成
+
+CREATE DATABASE example_database;
+
+新しいユーザーを作成
+CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+データベースに対する権限を与える必要があります。
+
+GRANT ALL ON example_database.* TO 'example_user'@'%';
+
+
+
+
+CREATE DATABASE example_database DEFAULT CHARACTER SET utf8;
+
+WordPress 用 MariaDB ユーザの作成
+
+GRANT ALL ON example_user.* TO example_user@localhost IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+example_databaseデータベースに対する権限を与える必要があります。
+
+GRANT ALL ON example_database.* TO 'example_user'@'%';
+
+
+
+データベース一覧を確認する
+show databases;
+
+
+ ariaDBに接続してコンテンツにクエリを出すPHPスクリプトを作成することができます。
+カスタムWeb rootディレクトリに新しいPHPファイルを作成してください。
+
+
+
+
+todo_listという名前のテストテーブルを作成します。MySQLコンソールから、次のステートメントを実行します。
+
+
+CREATE TABLE example_database.todo_list (
+    item_id INT AUTO_INCREMENT,
+    content VARCHAR(255),
+    PRIMARY KEY(item_id)
+);
+
+
+
+テストテーブルにコンテンツの数行を挿入します。異なる値を使用して、次のコマンドを数回繰り返したい場合があります。
+INSERT INTO example_database.todo_list (content) VALUES ("My first important item");
+
+データが正常にテーブルに保存されたことを確認するには、以下を実行します。
+
+SELECT * FROM example_database.todo_list;
+
+
+vim /var/www/your_domain/todo_list.php
+
+<?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mariadb:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+
+sudo systemctl reload apache2
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+確認アドレス
+http://127.0.0.1/todo_list.php
+
+
+
+
+WordPressをインストールする方法
+
+ステップ1 — WordPress用のMySQLデータベースとユーザーの作成
+最初のステップは準備になります。WordPressは、MySQLを使用してサイトとユーザーの情報を管理・保存します。MySQLはすでにインストールされていますが、WordPressで使用するデータベースとユーザーを作成する必要があります。
+
+開始するには、このコマンドを入力してMySQL root（管理）アカウントにログインします。（サーバーのrootユーザーではないことに注意してください）。
+
+mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new_password';
+
+
+mysql -u root -p
+
+new_password
+
+
+
+データベース内に、WordPressが制御する専用のデータベースを作成します。
+wordpressと名付けます。
+次のように入力してWordPress用のデータベースを作成します。
+
+
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+
+
+スワードを設定し、作成したデータベースへのアクセスを許可します。
+それには次のコマンドを入力します。データベースユーザーの強力なパスワードpasswordを忘れずに選択してください。　
+
+CREATE USER 'wordpressuser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+
+
+
+
+wordpressuserがセットアップ済データベースにフルアクセスできる必要があることをデータベースに知らせます。
+
+GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
+
+
+
+
+WordPress専用にデータベースとユーザーアカウントが作成されました。
+MySQLインスタンスに、最近行った変更について知らせるために、権限をフラッシュします。
+
+FLUSH PRIVILEGES;
+
+
+
+
+
+
+ステップ2— 追加のPHP拡張機能のインストール
+LAMPスタックをセットアップする際、PHPとMySQLを通信させるために必要最小限の拡張機能をインストールしました。
+WordPressとそのプラグインの多くは、追加のPHP拡張機能を活用しています。
+
+WordPressで使用する最も一般的なPHP拡張機能をダウンロード・インストールするには、次のコマンドを実行します。　　　　
+
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+
+
+
+
+
+新しい拡張機能をロードするにはApacheを再起動する必要があります。
+次のセクションでApacheでさらに設定を加えるので、それまで待つことも、今再起動してPHP拡張プロセスを完了することもできます。
+
+sudo systemctl restart apache2
+
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+
+
+
+
+ステップ3 — Apacheの設定を調整して.htaccessの上書きと書き換えを許可する
+次に、Apache設定を若干変更します。
+
+前提条件のチュートリアルに従えば、/etc/apache2/site-able/ディレクトリにサイトの設定ファイルがあるはずです。
+
+このガイドでは、/etc/apache2/sites-ability/wordpress.confを例に挙げますが、適宜設定ファイルのパスを変更してください。
+/var/www/wordpressをWordPressインストールのrootディレクトリとして使用します。
+自身の設定で指定したWeb rootを使用します。
+
+LAMPチュートリアルに従った場合、どちらのインスタンスもwordpressではなくドメイン名になるかもしれません。
+
+注:デフォルト設定に000-default.confを（Web rootには/var/www/htmlを）使用しているかもしれません。
+このサーバーでホストするのがひとつのサイトだけなら、このまま使用しても構いません。
+そうでない場合は、必要な設定を1サイト1ファイルに論理的に分割した方がよいでしょう。
+
+
+
+
+
+
+.htaccess 上書きを 有効にする
+現在、.htaccessファイルの使用は無効になっています。WordPressとWordPressプラグインの多くは、Webサーバーの動作をディレクトリ内で調整するためにこれらのファイルを広範囲に使用します。
+
+nanoのようなテキストエディターでサイトのApache設定ファイルを開きます。
+
+sudo vim /etc/apache2/sites-available/wordpress.conf
+
+
+
+<Directory /var/www/wordpress/>
+    AllowOverride All
+</Directory>
+
+
+
+
+リライトモジュールを有効にする
+次に、WordPress パーマリンク機能を使用できるように、mod_rewriteを有効にします。
+
+sudo a2enmod rewrite
+
+
+
+
+次の2つの例のように、投稿に人間が読みやすいパーマリンクを付けられるようになります。
+
+http://example.com/2012/post-name/
+http://example.com/2012/12/30/post-name
+
+
+
+
+変更を有効にする
+行った変更を実装する前に、次のテストを実行して構文エラーがないことを確認します。
+
+sudo apache2ctl configtest
+ 
+出力は次のようになります。
+
+
+
+
+Apacheを再起動して変更を実装します。このチュートリアルの前のステップで再起動したとしても、ここで再起動してください。
+
+sudo systemctl restart apache2
+
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+
+
+ステップ4 —WordPressのダウンロード
+サーバーソフトウェアが設定されたので、WordPressをダウンロードしてセットアップできます。
+特にセキュリティ上の理由から、サイトからWordPressの最新バージョンを入手することをお勧めします。
+
+書き込み可能なディレクトリ（/tmpのような一時保管ディレクトリを推奨）に移動し、圧縮リリースをダウンロードします。
+
+
+curlインストール
+
+snap install curl
+
+
+cd /var/www/html
+wget https://ja.wordpress.org/latest-ja.tar.gz
+
+
+
+圧縮ファイルを解凍して、WordPressディレクトリ構造を作成します。
+
+tar xvf latest-ja.tar.gz
+chown -R www-data:www-data .
+
+
+
+
+これらのファイルを一時的にドキュメントrootに移動します。
+ダミーの.htaccessファイルを追加して、WordPressが後で使用できるようにします。
+
+次を入力してファイルを作成します。
+
+touch /usr/local/src/wordpress/.htaccess
+
+
+
+
+また、サンプル設定ファイルを、WordPressが実際に読み込むファイル名にコピーします。
+
+cp /usr/local/src/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
+ 
+upgradeディレクトリを作成して、
+ソフトウェアの更新後にWordPressが独自にこれを実行しようとしたときに権限の問題が発生しないようにします。
+
+mkdir /usr/local/src/wordpress/wp-content/upgrade
+
+
+
+
+、隠しファイル（作成したばかりの.htaccessファイルなど）を含むディレクトリ内のすべてをコピーすることを示します。
+
+sudo cp -a /usr/local/src/wordpress/. /var/www/wordpress
+
+
+
+
+/var/www/wordpressディレクトリをサーバーにセットアップしたディレクトリに変更するようにします。
+
+ステップ5 — WordPressディレクトリの設定
+
+
+WebベースのWordPressセットアップを実行する前に、WordPressディレクトリ内のアイテムをいくつか調整します。
+
+所有権と権限の調整
+すべてのファイルの所有権をwww-dataユーザーとグループに付与します。
+
+
+ファイルの所有権を変更するchownコマンドで、所有権を更新します。サーバーの関連ディレクトリをポイントしてください。
+
+sudo chown -R www-data:www-data /var/www/wordpress
+ 
+次に、次の2つのfindコマンドを実行して、WordPressの各ディレクトリとファイルに適切な権限を設定します。
+
+sudo find /var/www/wordpress/ -type d -exec chmod 750 {} \;
+sudo find /var/www/wordpress/ -type f -exec chmod 640 {} \;
+
+
+
+
+WordPress設定ファイルのセットアップ
+ここで、メインのWordPress構成ファイルにいくつかの変更を加える必要があります。
+
+ファイルを開くと、最初のタスクは、秘密の鍵を調整してインストールするためのセキュリティレベルを提供します。ファイルを開くとき、最初のタスクは、秘密鍵をいくつか調整して、インストールにセキュリティレベルを付与することです。　WordPressはこれらの値用に秘密鍵ジェネレーターを備えているため、自身で適切な値を考え出す必要はありません。これらは内部でのみ使用されるため、ここで複雑で安全な値を使用しても、使いやすさを損なうことはありません。
+
+WordPress秘密鍵ジェネレーターから安全な値を取得するには、次のコマンドを実行します。
+
+curl -s https://api.wordpress.org/secret-key/1.1/salt/
+
+
+
+WordPress設定ファイルを開きます。
+
+sudo vim /var/www/wordpress/wp-config.php
+
+
+
+
+ステップ6 —Webインターフェイスを介したインストールの完了
+サーバーの設定が完了したので、Webインターフェースを介したインストールを完了します。
+
+Webブラウザで、サーバーのドメイン名またはパブリックIPアドレスに移動します。
+
+
+
+sudo systemctl restart apache2
+
+
+Apacheの状態確認
+sudo systemctl status apache2
+
+
+
+
+確認アドレス
+http://127.0.0.1/wordpress/ 
+
+
+
+https://server_domain_or_IP
+
+https://127.0.0.1/wordpress/ 

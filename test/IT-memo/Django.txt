@@ -1,0 +1,40 @@
+
+
+vim のコード補完プラグイン
+sudo apt-get install -y build-essential cmake python3-dev libclang-dev
+
+
+apache2.conf 場所
+
+/etc/apache2/apache2.conf
+
+Djang
+/home/hirotada/job_project/config
+
+
+/root/.vim/plugged/YouCompleteMe/test/lib/autoload/youcompleteme
+
+python3 /root/.vim/plugged/YouCompleteMe/test/lib/autoload/youcompleteme/install.py
+
+python3 /root/.vim/bundle/youcompleteme/install.py
+
+
+python3 /root/.vim/bundle/youcompleteme/install.py
+
+
+MySQL場所
+/var/log/mysql
+
+
+MySQL8.0以降で接続できない場合は「認証プラグイン」を変更する
+
+1. ユーザーの認証方式の変更
+
+ユーザーの認証方式を旧式の「mysql_native_password」に変更する。
+ALTER USER 'ユーザー名'@'localhost' IDENTIFIED WITH mysql_native_password BY 'パスワード';
+
+ALTER USER 'hiro'@'localhost' IDENTIFIED WITH mysql_native_password BY 'hirotada';
+
+変更の確認をする。
+
+SELECT user, host, plugin FROM mysql.user;
