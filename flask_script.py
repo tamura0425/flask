@@ -80,38 +80,38 @@ def api_books():
 
 
 @app.route("/1")
-def aa5():
+def a1():
     name = "私は田村弘忠です。"
     return render_template("index.html", name_value = name)
 
 @app.route("/2")
-def test():
+def a2():
    #変数定義
     return render_template("right.html")
 
 
 @app.route("/3")
-def header():
+def a3():
     #変数定義
     return render_template("header.html")
 
 @app.route("/4")
-def hogehoge():
+def a4():
        #変数定義
      return render_template("test.html")
 
 @app.route("/5")
-def hogehoge():
+def a5():
        #変数定義
      return "5"
 
 @app.route("/6")
-def hogehoge():
+def a6():
        #変数定義
      return "6"
 
 @app.route("/7")
-def hogehoge():
+def a7():
        #変数定義
      return "7"
 
@@ -146,9 +146,6 @@ def bootstrap():
 
 # for player in players:
 #     print(player["name"])
-
-
-
 
 
 
