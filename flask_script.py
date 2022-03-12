@@ -14,14 +14,10 @@ from flask import Flask, render_template #追加
 #flask_bootstrapの使用
 from flask_bootstrap import Bootstrap
 
-
-
 #データベースをSQLAlchemyで操作するために必要
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-
-
 
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -33,7 +29,7 @@ app.register_blueprint(ng_module)
 
 # どのページで実行する関数か設定
 @app.route("/01")
-#メイン関数
+#メイン関数(サンプルコード)
 def main():
     name = "Flask"
     players = ["111","555","777"]
@@ -78,52 +74,6 @@ def api_books():
 # def index():
 #     return render_template("index.html")
 
-
-@app.route("/1")
-def a1():
-    name = "私は田村弘忠です。"
-    return render_template("index.html", name_value = name)
-
-@app.route("/2")
-def a2():
-   #変数定義
-    return render_template("right.html")
-
-
-@app.route("/3")
-def a3():
-    #変数定義
-    return render_template("header.html")
-
-@app.route("/4")
-def a4():
-       #変数定義
-     return render_template("test.html")
-
-@app.route("/5")
-def a5():
-       #変数定義
-     return "5"
-
-@app.route("/6")
-def a6():
-       #変数定義
-     return "6"
-
-@app.route("/7")
-def a7():
-       #変数定義
-     return "7"
-
-# @app.route("/05")
-# def sake_type():
-#        #変数定義
-#      return render_template("Sake_type.html")
-
-
-@app.route('/bootstrap')
-def bootstrap():
-    return render_template('bootstrap.html')
 
 
 #データベースコントロール
