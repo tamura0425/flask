@@ -20,3 +20,50 @@ def index():
 def sake_type():
        #変数定義
      return render_template("Sake_type.html")
+
+
+@ok_module.route("/1")
+def a1():
+    name = "私は田村弘忠です。"
+    return render_template("index.html", name_value = name)
+
+@ok_module.route("/2")
+def a2():
+   #変数定義
+    return render_template("right.html")
+
+
+@ok_module.route("/3")
+def a3():
+    #変数定義
+    return render_template("header.html")
+
+@ok_module.route("/4")
+def a4():
+       #変数定義
+     return render_template("test.html")
+
+@ok_module.route("/5")
+def a5():
+       #変数定義
+     return "5"
+
+@ok_module.route("/6")
+def a6():
+       #変数定義
+     return "6"
+
+@ok_module.route("/7")
+def a7():
+       #変数定義
+     return "7"
+
+# @ok_module.route("/05")
+# def sake_type():
+#        #変数定義
+#      return render_template("Sake_type.html")
+
+
+@ok_module.route('/bootstrap')
+def bootstrap():
+    return render_template('bootstrap.html')
