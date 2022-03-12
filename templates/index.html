@@ -1,8 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-    <h1>Hello {{ name_value }}</h1>
-    <p>Hello paiza!</p>
-    {% for player in players: %}
-        <p>{{ player + "はモンスターを戦った" }}</p>
-    {% endfor %}
-{% endblock %}
