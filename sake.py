@@ -12,3 +12,10 @@ sake_module = Blueprint("sake", __name__)
 def sake1():
        #変数定義
      return "sake"
+
+
+
+@sake_module.route("/sake")
+def sake2():
+       #変数定義
+     return render_template('sake/sake.html')
