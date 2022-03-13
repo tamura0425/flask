@@ -29,7 +29,6 @@ bootstrap = Bootstrap(app)
 
 ##以下をモジュールとして定義しアプリケーションに認識
 app.register_blueprint(ok_module)
-app.register_blueprint(ng_module)
 
 #日本酒
 app.register_blueprint(sake_module)
