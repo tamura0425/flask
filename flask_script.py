@@ -47,9 +47,9 @@ app.register_blueprint(Brandy_module)
 def main():
     name = "Flask"
     players = ["111","555","777"]
-    
     #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index.html",name_value = name,players = players)
+
 @app.route("/")
 def show():
     message = "Hello World"
