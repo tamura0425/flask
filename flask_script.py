@@ -27,6 +27,18 @@ bootstrap = Bootstrap(app)
 app.register_blueprint(ok_module)
 app.register_blueprint(ng_module)
 
+#日本酒
+app.register_blueprint(sake_module)
+#ワイン
+app.register_blueprint(wine_module)
+#バーボン
+app.register_blueprint(Bourbon_module)
+#ブランデー
+app.register_blueprint(Brandy_module)
+
+
+
+
 # どのページで実行する関数か設定
 @app.route("/01")
 #メイン関数(サンプルコード)
