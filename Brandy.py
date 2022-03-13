@@ -16,4 +16,4 @@ def Brandy1():
 @Brandy_module.route("/Brandy/1")
 def Brandy2():
        #変数定義
-     return render_template('Brandy/Brandy.html')
+     return render_template('/Brandy/Brandy.html')

@@ -3,6 +3,8 @@ from flask import *
 from flask import Flask
 
 import pymysql
+#アプリを分割するライブラリ
+from flask import Blueprint
 
 # render_templateを使用するために記載
 from flask import Flask, render_template #追加
