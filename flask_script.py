@@ -41,7 +41,6 @@ app.register_blueprint(Bourbon_module)
 #ブランデー
 app.register_blueprint(Brandy_module)
 
-
 # どのページで実行する関数か設定
 @app.route("/01")
 #メイン関数(サンプルコード)
@@ -51,8 +50,6 @@ def main():
     
     #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index.html",name_value = name,players = players)
-
-
 @app.route("/")
 def show():
     message = "Hello World"

@@ -13,7 +13,7 @@ def Bourbon1():
     return "Bourbon"
 
 
-@Bourbon_module.route("/wine/1")
+@Bourbon_module.route("/Bourbon/1")
 def Bourbon():
        #変数定義
-     return render_template('Bourbon/Bourbon.html')
+     return render_template('/Bourbon/Bourbon.html')

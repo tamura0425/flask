@@ -15,7 +15,7 @@ def sake1():
 
 
 
-@sake_module.route("/sake")
+@sake_module.route("/sake/1")
 def sake2():
        #変数定義
-     return render_template('sake/sake.html')
+     return render_template('/sake/sake.html')
