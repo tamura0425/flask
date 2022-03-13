@@ -14,6 +14,6 @@ def Brandy1():
 
 
 @sake_module.route("/Brandy")
-def sake2():
+def Brandy2():
        #変数定義
      return render_template('Brandy/Brandy.html')

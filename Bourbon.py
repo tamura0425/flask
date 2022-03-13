@@ -14,6 +14,6 @@ def Bourbon1():
 
 
 @sake_module.route("/wine")
-def sake2():
+def Bourbon():
        #変数定義
      return render_template('Bourbon/Bourbon.html')
