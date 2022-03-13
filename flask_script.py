@@ -2,8 +2,6 @@
 from flask import *
 from flask import Flask
 
-
-
 import pymysql
 
 # render_templateを使用するために記載
@@ -19,7 +17,7 @@ from sqlalchemy.orm import sessionmaker
 #分割ファイルをメインで使用する為に記載
 #記載例　from Pythonファイルメイ import モジュール名
 from ok import ok_module
-from ng import ng_module
+
 from sake import sake_module
 from wine import wine_module
 from Bourbon import Bourbon_module
@@ -41,8 +39,6 @@ app.register_blueprint(wine_module)
 app.register_blueprint(Bourbon_module)
 #ブランデー
 app.register_blueprint(Brandy_module)
-
-
 
 
 # どのページで実行する関数か設定
