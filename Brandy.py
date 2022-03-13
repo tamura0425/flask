@@ -13,7 +13,7 @@ def Brandy1():
     return "Brandy"
 
 
-@sake_module.route("/Brandy/1")
+@Brandy_module.route("/Brandy/1")
 def Brandy2():
        #変数定義
      return render_template('Brandy/Brandy.html')

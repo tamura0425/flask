@@ -12,7 +12,7 @@ def wine1():
     #変数定義
     return "wine"
 
-@sake_module.route("/wine/1")
+@wine_module.route("/wine/1")
 def wine2():
        #変数定義
      return render_template('wine/wine.html')
