@@ -2,10 +2,7 @@
 from flask import *
 from flask import Flask
 
-#分割ファイルをメインで使用する為に記載
-#記載例　from Pythonファイルメイ import モジュール名
-from ok import ok_module
-from ng import ng_module
+
 
 import pymysql
 
@@ -18,6 +15,15 @@ from flask_bootstrap import Bootstrap
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+
+#分割ファイルをメインで使用する為に記載
+#記載例　from Pythonファイルメイ import モジュール名
+from ok import ok_module
+from ng import ng_module
+from sake import sake_module
+from wine import wine_module
+from Bourbon import Bourbon_module
+from Brandy import Brandy_module
 
 # アプリの設定 ・Flaskオブジェクトの生成
 app = Flask(__name__)
