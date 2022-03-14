@@ -12,7 +12,6 @@ def Brandy1():
     #変数定義
     return "Brandy"
 
-
 @Brandy_module.route("/Brandy/1")
 def Brandy2():
        #変数定義
