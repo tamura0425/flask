@@ -15,4 +15,4 @@ def wine1():
 @wine_module.route("/wine/1")
 def wine2():
        #変数定義
-     return render_template('wine/wine.html')
+     return render_template('/wine/wine.html')
