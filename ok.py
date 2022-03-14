@@ -38,7 +38,7 @@ def sake_type():
 #script.js
 
 @ok_module.route("/js")
-def sake_type():
+def jstest():
        #変数定義
      return render_template("test.html")
 
