@@ -37,11 +37,15 @@ def sake_type():
 #      return render_template("Sake_type.html")
 #script.js
 
-@ok_module.route("/js")
-def jstest():
+@ok_module.route("/js/1")
+def jstest1():
        #変数定義
      return render_template("55test.html")
 
+@ok_module.route("/js/2")
+def jstest2():
+       #変数定義
+     return render_template("test.html")
 
 
 
