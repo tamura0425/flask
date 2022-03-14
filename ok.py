@@ -35,6 +35,14 @@ def sake_type():
 # def sake_type():
 #        #変数定義
 #      return render_template("Sake_type.html")
+#script.js
+
+@ok_module.route("/js")
+def sake_type():
+       #変数定義
+     return render_template("test.html")
+
+
 
 
 @ok_module.route('/bootstrap')
