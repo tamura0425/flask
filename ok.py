@@ -40,7 +40,7 @@ def sake_type():
 @ok_module.route("/js")
 def jstest():
        #変数定義
-     return render_template("test.html")
+     return render_template("55test.html")
 
 
 
