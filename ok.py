@@ -54,5 +54,9 @@ def bootstrap():
 
 
 @ok_module.route('/test1')
-def mein_test():
+def mein_test1():
     return render_template('/test/company.html')
+
+@ok_module.route('/test2')
+def mein_test2():
+    return render_template('/test/index.html')
