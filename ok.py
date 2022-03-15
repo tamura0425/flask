@@ -11,7 +11,6 @@ ok_module = Blueprint("ok", __name__)
 def get_ok():
     return "OK"
 
-
 @ok_module.route("/index")
 def index():
     return render_template("index.html")
