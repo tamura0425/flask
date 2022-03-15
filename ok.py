@@ -51,3 +51,8 @@ def jstest2():
 @ok_module.route('/bootstrap')
 def bootstrap():
     return render_template('bootstrap.html')
+
+
+@ok_module.route('/bootstrap')
+def mein_test():
+    return render_template('/test/company.html')
