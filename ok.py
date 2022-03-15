@@ -53,6 +53,6 @@ def bootstrap():
     return render_template('bootstrap.html')
 
 
-@ok_module.route('/bootstrap')
+@ok_module.route('/test1')
 def mein_test():
     return render_template('/test/company.html')
