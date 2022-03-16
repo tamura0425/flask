@@ -3,7 +3,6 @@ $('.effect').on('inview', function() {
 	 $item.addClass('start');
 });
 
-
 $(function(){
   $('a[href^=#]').click(function(){
     var speed = 500;
@@ -150,15 +149,15 @@ window.onload = function() {
     fixedClass = 'nav_fixed';
 
     $win.on('load scroll', function() {
-      var value = $(this).scrollTop();
-      if( value > navPos ) {
-        $nav.addClass(fixedClass);
+     var value = $(this).scrollTop();
+     if( value > navPos ) {
+       $nav.addClass(fixedClass);
   //     $main.css('margin-top', navHeight);
-      }else {
-        $nav.removeClass(fixedClass);
+     }else {
+       $nav.removeClass(fixedClass);
   //    $main.css('margin-top', '0');
-      }
-      });
+     }
+    });
     $win.on('resize', function() {
       navPos = $nav.offset().top;
     });
