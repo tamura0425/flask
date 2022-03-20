@@ -60,3 +60,13 @@ def mein_test1():
 @ok_module.route('/test2')
 def mein_test2():
     return render_template('/test/index.html')
+
+
+@ok_module.route('/test3')
+def mein_test3():
+    return render_template('/test/layout.html')
+
+
+@ok_module.route('/test4')
+def mein_test3():
+    return render_template('/test/layout2.html')
