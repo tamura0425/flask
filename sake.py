@@ -19,3 +19,8 @@ def sake1():
 def sake2():
        #変数定義
      return render_template('/sake/sake.html')
+   
+   
+   @ok_module.route('/sake/2')
+def sake3():
+    return render_template('/sake/sake.html')
