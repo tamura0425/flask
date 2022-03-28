@@ -8,9 +8,9 @@ from flask import Blueprint
 sake_module = Blueprint("sake", __name__)
 
 
-@sake_module.route("/sake")
-def sake1():
-  return "sake"
+# @sake_module.route("/sake")
+# def sake1():
+#   return "sake"
 
 
 
@@ -18,6 +18,6 @@ def sake1():
 def sake2():
   return render_template('/sake/sake.html')
 
-@sake_module.route('/sake/2')
+@sake_module.route('/sake/')
 def sake3():
   return render_template('templates/sake/sake.html')
