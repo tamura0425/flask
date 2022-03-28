@@ -20,4 +20,4 @@ def sake2():
 
 @sake_module.route('/sake/')
 def sake3():
-  return render_template('templates/sake/sake.html')
+  return render_template('/sake/sake.html')
