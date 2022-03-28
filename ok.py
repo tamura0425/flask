@@ -25,8 +25,8 @@ def a2():
    #変数定義
     return render_template("right.html")
 
-@ok_module.route("/3")
-def sake_type():
+# @ok_module.route("/3")
+# def sake_type():
     #変数定義
     # return render_template("Sake_type.html")
 
@@ -51,7 +51,7 @@ def sake_type():
 # @ok_module.route('/bootstrap')
 # def bootstrap():
 #     return render_template('bootstrap.html')
-
+#
 @ok_module.route('/test1')
 def mein_test1():
     return render_template('/test/company.html')
