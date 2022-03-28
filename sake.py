@@ -18,6 +18,6 @@ sake_module = Blueprint("sake", __name__)
 def sake2():
   return render_template('/sake/sake.html')
 
-@sake_module.route('/sake/')
+@sake_module.route('/sake/sake.html')
 def sake3():
   return render_template('/sake/sake.html')
