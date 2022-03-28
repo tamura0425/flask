@@ -21,6 +21,6 @@ def sake2():
      return render_template('/sake/sake.html')
    
    
-   @ok_module.route('/sake/2')
+@sake_modulee.route('/sake/2')
 def sake3():
     return render_template('/sake/sake.html')
