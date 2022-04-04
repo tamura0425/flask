@@ -1587,7 +1587,7 @@ header #h_box_sp {
 	top: 0px;
 	left: 0px;
 	overflow: auto;
-	z-index: 4000;
+	z-index: 2000;
 	background-color: #00365E;
 	background-color: rgba(0,15,44,1.0);
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 7px 0px;
@@ -1627,13 +1627,13 @@ header .h_btn a::after {
 	line-height: 36px;
 }
 
-/* コメントアウト
+
 header .h_box .h_list li a {
 	font-size: 12px;
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-top: 10px;
-} */
+}
 
 header .h_box ul.h_lang {
 	margin-top: 10px;
