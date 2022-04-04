@@ -1333,9 +1333,6 @@ header h1 {
 	display: none;
 }
 
-/*
-上部日本語　英語切り替え箇所
- */
 header .h_box {
 	position: absolute;
 	top: 10px;
