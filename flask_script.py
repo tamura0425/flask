@@ -50,10 +50,10 @@ def main():
     #templateのデータを渡すためにrender_templateの引数として記述[ name_value = name]
     return render_template("index.html",name_value = name,players = players)
 
-@app.route("/")
-def show():
-    message = "Hello World"
-    return render_template("form.html", message = message)
+# @app.route("/")
+# def show():
+#     message = "Hello World"
+#     return render_template("form.html", message = message)
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
