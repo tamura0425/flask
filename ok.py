@@ -69,7 +69,7 @@ def mein_test4():
     return render_template('/sake/sake.html')
 
 
-@ok_module.route('/test5')
+@ok_module.route('/test/layout_2.html')
 def mein_test5():
     return render_template('/test/layout_2.html')
 
