@@ -70,7 +70,7 @@ def mein_test4():
 
 
 @ok_module.route('/test/layout_2.html')
-def mein_test5():
+def mein_Cocktail():
     return render_template('/test/layout_2.html')
 
 
