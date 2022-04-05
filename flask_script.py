@@ -2,6 +2,11 @@
 from flask import *
 from flask import Flask
 
+
+import cgi
+import cgitb
+cgitb.enable(display=0, logdir="/var/log/apache2")
+
 import pymysql
 #アプリを分割するライブラリ
 from flask import Blueprint
