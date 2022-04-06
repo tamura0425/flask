@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生誕〇〇日</title>
+</head>
+<link rel="stylesheet" href="../static/style.css">
+<body>
+    <div class="content">
+        <header>
+            <h1>あなたが生まれて〇〇日</h1>
+            <img src="../static/img/baby.png" alt="赤ちゃんの画像" width="50%" height="50%">
+        </header>
+        <form action="/calc" method="POST">
+            <div class="control">
+                <label for="birth">生年月日(例.〇〇/〇〇/〇〇)</label>
+                <input type="text" id="birth" name="birth">
+            </div>
+            <div class="control">
+                <button type="submit">計算する</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
