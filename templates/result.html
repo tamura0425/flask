@@ -1,10 +1,8 @@
 {% extends "/test/layout1.html" %}
 {% block  test11 %}
     <div class="content">
-        <header>
             <h1>あなたが生まれて{{ days }}日たちました</h1>
-            <img src="../static/img/parents.png" alt="親の画像" width="50%" height="50%">
-        </header>
+
         <div class="control">
             {% if days > 7000 %}
             <p>両親、友人、普段意識することのない人たちによってここまで生かされてここまで生きて来れました</p>
