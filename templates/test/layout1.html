@@ -18,160 +18,105 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
-
 </head>
 <body>
 
 <header class="header_bg_03">
 
 <div class="bg_bl"></div>
-  <h1><a href="index.html"><img src="static/img/logo.png" alt="メガピクス"></a></h1>
+<h1><a href="index.html"><img src="static/img/logo.png" alt="メガピクス"></a></h1>
   <div id="h_box_sp">
     <div class="h_box">
-      <ul class="h_list">
-          <li><a href="faq.html">よくあるご質問</a></li>
-          <li><a href="company.html">会社概要</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-      </ul>
+
       <ul class="h_lang">
           <li><a href="#" class="selected">日本語</a></li>
           <li><a href="#">ENGLISH</a></li>
       </ul>
     </div>
 
-    <div class="h_tel"><a href="tel:123-456-7890"><i class="fas fa-phone"></i>123-<strong>456-7890</strong></a></div>
-    <div class="h_btn">
-      <a href="contact.html">ご予約・ご購入</a>
   </div>
-
-</div>
-
 
 <div class="menu_btn">
     <span class="top"></span>
     <span class="middle"></span>
     <span class="bottom"></span>
 </div>
-
 <nav id="g_navi">
     <ul class="navi_base">
     <li><a href="index.html">HOME</a></li>
-      <li><a class="ac_menu">商品のご案内</a>
+      <li><a class="ac_menu">お酒の種類</a>
+        <div class="ac_list">
+          <ul>
+            <li><a href="sub.html">醸造酒</a></li>
+            <li><a href="sub.html">蒸留酒</a></li>
+            <li><a href="/sake/sake.html">混成酒</a></li>
+            <!--sake.pyとの連結サンプル-->
+            <li><a href="/calc">記念ワイン</a></li>
+            <!--s<li><a href="/sake/sake.html">
+                  <button type="button">商品Eについて</button>
+                </a>
+            </li> -->
+          </ul>
+        </div>
+      </li>
+    <li><a class="ac_menu">店舗のご案内</a>
       <div class="ac_list">
-      <ul>
-      <li><a href="list.html">商品一覧</a></li>
-      <li><a href="sub.html">商品Aについて</a></li>
-      <li><a href="sub.html">商品Bについて</a></li>
-      <li><a href="sub.html">商品Cついて</a></li>
-      <li><a href="sub.html">商品Dについて</a></li>
-      </ul>
+        <ul>
+          <li><a href="sub.html">北軽井沢本店</a></li>
+          <li><a href="sub.html">川崎支店</a></li>
+          <li><a href="sub.html">須走支店</a></li>
+          <li><a href="sub.html">鳥栖支店</a></li>
+          <li><a href="sub.html">八王子支店</a></li>
+        <li><a href="sub.html">いすみ支店</a></li>
+        </ul>
       </div>
-      </li> 
-      <li><a class="ac_menu">店舗のご案内</a>
-      <div class="ac_list">
-      <ul>
-      <li><a href="sub.html">北軽井沢本店</a></li>
-      <li><a href="sub.html">川崎支店</a></li>
-      <li><a href="sub.html">須走支店</a></li>
-      <li><a href="sub.html">鳥栖支店</a></li>
-      <li><a href="sub.html">八王子支店</a></li>
-      <li><a href="sub.html">いすみ支店</a></li>
-      </ul>
-      </div>
-      </li>  
-      <li><a href="staff.html">スタッフ紹介</a></li>
-      <li><a href="sub.html">お客様の声</a></li>
-      <li><a href="contact.html">ご予約・ご購入</a></li>
+    </li>
+      <li><a href="/test5">カクテル</a></li>
+      <li><a href="/test3">知る・学ぶ</a></li>
+      <li><a href="contact.html">掲示板</a></li>
     </ul>
 </nav>
 </header>
 
 <div class="pankuzu effect">
   <ul>
-  <li><a href="index.html">HOME</a></li>
-  <li>会社概要</li>
+    <li><a href="index.html">HOME</a></li>
+    <li>会社概要</li>
   </ul>
 </div>
 
 <div class="content">
 
-
-<section class="main_cont effect d_02">tn_contact"><a href="contact.html"><i class="fas fa-envelope"></i>お問い合わせフォーム</a></div>
-
-{% block test11 %}
-{% endblock %}
-
 </section>
-
-
 </div>
 
+
+
+<!--
 <footer>
 
 <div class="footer_box clfix">
 <div class="box_in">
-    
-<ul>
-      <li>
-      <div class="li_title">商品のご案内</div>
-      <ul>
-      <li><a href="list.html">商品一覧</a></li>
-      <li><a href="sub.html">商品Aについて</a></li>
-      <li><a href="sub.html">商品Bについて</a></li>
-      <li><a href="sub.html">商品Cついて</a></li>
-      <li><a href="sub.html">商品Dについて</a></li>
-      </ul>
-      </li>
-</ul>
 
-<ul>
-      <li><div class="li_title">店舗のご案内</div>
-      <ul>
-      <li><a href="sub.html">北軽井沢本店</a></li>
-      <li><a href="sub.html">川崎支店</a></li>
-      <li><a href="sub.html">須走支店</a></li>
-      <li><a href="sub.html">鳥栖支店</a></li>
-      <li><a href="sub.html">八王子支店</a></li>
-      <li><a href="sub.html">いすみ支店</a></li>
-      </ul>
-      </li>
-</ul>
-<ul>
-      <li><a href="staff.html">スタッフ紹介</a></li>
-      <li><a href="sub.html">お客様の声</a></li>
-      <li><a href="contact.html">ご予約・ご購入</a></li>
-      <li><a href="faq.html">よくあるご質問</a></li>
-    <li><a href="company.html">会社概要</a></li>
-    <li><a href="contact.html">お問い合わせ</a></li>
-</ul>
-
-<div class="foot_right">
-<p>株式会社サンプルコーポレーション<br>
-〒123-4567 見本県見本市見本町1-23-4<br>
-TEL 123(456)7890　FAX 123(456)7890<br>
-E-MAIL info@sample-corp.co.jp</p>
+</div>
 </div>
 
-</div><!--/box_in-->
-</div><!--/footer_box-->
-
-
-<img src="static/img/logo.png" alt="メガピクス　ロゴ" class="foot_logo">
-<address>copyright (c) MegaPx Allrights reserved.</address>
-
 </footer>
+-->
 
-
-<div class="box_pr"><ul>
-<li>Design by <a href="https://www.megapx.com/" title="ホームページ制作・ロゴデザイン：メガピクス" target="_blank">Megapx</a></li>
-<li>Template by <a href="http://www.s-hoshino.com/" title="HTMLテンプレート配布元：フリー素材屋Hoshino" target="_blank">s-hoshino.com</a></li>
-</ul></div>
-
-<div id="to_top"><a href="#"><img src="img/i_pagetop.png" alt="ページトップへ戻る" ></a></div>
+<div id="to_top">
+  <a href="#"><img src="img/i_pagetop.png" alt="ページトップへ戻る" ></a>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="static/js/jquery.inview.min.js"></script>
 <script src="static/js/script.js"></script>
 
 </body>
+
+<!--共通テンプレート-->
+{% block test11 %}
+{% endblock %}
+
+
 </html>

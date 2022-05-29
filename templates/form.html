@@ -1,0 +1,17 @@
+{% extends "/test/layout1.html" %}
+{% block  test11 %}
+
+    <div class="content">
+            <h1>あなたが生まれて〇〇日</h1>
+        <form action="/calc" method="POST">
+            <div class="control">
+                <label for="birth">生年月日(例.〇〇/〇〇/〇〇)</label>
+                <input type="text" id="birth" name="birth">
+            </div>
+            <div class="control">
+                <button type="submit">計算する</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
