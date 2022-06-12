@@ -1,7 +1,7 @@
 # 必要なライブラリのインポート
 from flask import *
-from flask import Flask
-from flask import request
+from flask import {Flask , request}
+
 from days_from_birth import calc
 
 import cgi
@@ -9,7 +9,7 @@ import cgitb
 cgitb.enable(display=0, logdir="/var/log/apache2")
 
 import pymysql
-#アプリを分割するライブラリ 
+#アプリを分割するライブラリ
 from flask import Blueprint
 
 # render_templateを使用するために記載
