@@ -6,6 +6,7 @@ def calc(birth_date):
     year = bth_date_list[0]
     month = bth_date_list[1]
     day = bth_date_list[2]
+
     birth_date = date(year, month, day)
     diff_day = (now_date - birth_date).days
     return diff_day
