@@ -1,3 +1,6 @@
 Ubuntu20.04のgit 整理
 
 Windows１０git 整理　完了
+
+
+Ubuntu22.04 git Organize
