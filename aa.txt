@@ -23,4 +23,7 @@ rrrrrrrr
 7777777777
 888888888
 999999999
+<<<<<<< HEAD
+>>>>>>> f9adb9f (Ubuntu 22.04 seiri)
+=======
 >>>>>>> f9adb9f (Ubuntu 22.04 seiri)
