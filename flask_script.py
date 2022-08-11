@@ -6,6 +6,7 @@ from days_from_birth import calc
 
 import cgi
 import cgitb
+
 cgitb.enable(display=0, logdir="/var/log/apache2")
 
 import pymysql
